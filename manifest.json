@@ -1,0 +1,12 @@
+{
+  "name": "Highrise Vonage",
+  "version": "0.1",
+  "description": "Highrise Vonage",
+  "background_page" : "background.html",
+  "permissions": ["http://*/*", "https://*/*"],
+  "content_scripts": [{
+  	"matches": ["http://*.highrisehq.com/*", "https://*.highrisehq.com/*"],
+  	"js": ["highrise-vonage.js"]
+  }],
+  "options_page": "options.html"
+}

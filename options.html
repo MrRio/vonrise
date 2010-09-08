@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Highrise + Vonage Options</title>
+<style type="text/css">
+
+body {
+	padding-left: 15px;
+	font-family: Arial;
+	font-size: 76%;
+}
+
+h2 {
+	margin-bottom: 20px;
+}
+
+div.input {
+	margin-bottom: 10px;
+}
+
+div.input label {
+	float: left;
+	width: 80px;
+	padding-top: 4px;
+}
+
+#save {
+	font-weight:bold;
+}
+
+button {
+}
+</style>
+<script type="text/javascript">
+
+function saveOptions() {
+	localStorage["username"] = document.getElementById('username').value;
+	localStorage["password"] = document.getElementById('password').value;
+	
+	document.getElementById('save').disabled = 'disabled';
+}
+
+function restoreOptions() {
+	document.getElementById('username').value = localStorage["username"];
+	document.getElementById('password').value = localStorage["password"];
+}
+</script>
+</head>
+<body onLoad="restoreOptions()">
+
+<h1>Highrise + Vonage Settings</h1>
+<h2>by Snapshot Media</h2>
+
+<form action="">
+	<div class="input">
+		<label>Username:</label>
+		<input type="text" id="username" name="username" onkeyup="document.getElementById('save').disabled = false" />
+	</div>
+	<div class="input">
+		<label>Password:</label>
+		<input type="password" id="password" name="password" onkeyup="document.getElementById('save').disabled = false" />
+	</div>
+	<div class="input select">
+		<label>Call from:</label>
+		<select disabled="disabled">
+			<option></option>
+		</select>
+	</div>
+	<div class="submit">
+		<button id="save" onclick="saveOptions()" disabled="disabled">Save</button>
+		<button id="cancel" onclick="restoreOptions()">Cancel</button>
+	</div>
+</form>
+
+</body>
+</html>
