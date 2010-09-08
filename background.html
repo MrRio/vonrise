@@ -33,7 +33,18 @@
        * @param callback Function The method to call when the request completes.
        */
       function onRequest(request, sender, callback) {
-          doAjaxRequest(request.url, callback);
+
+          if(request.action == 'doAjaxRequest') {
+          	doAjaxRequest(request.url, callback);
+          }
+          if(request.action == 'getSettings') {
+			  var username = localStorage["username"];
+			  if(username == undefined || username == '') {
+				chrome.tabs.create({url:chrome.extension.getURL("options.html")});
+			  } else {
+              	callback({username: localStorage["username"], password: localStorage["password"] });
+			  }
+          }
       };
 
       // Wire up the listener.

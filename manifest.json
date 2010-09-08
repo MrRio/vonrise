@@ -1,9 +1,10 @@
 {
-  "name": "Highrise Vonage",
+  "name": "Vonrise",
   "version": "0.1",
-  "description": "Highrise Vonage",
+  "description": "Highrise + Vonage integration by Snapshot Media",
+  "icons": { "16": "16.png", "48" : "48.png", "128": "128.png"},
   "background_page" : "background.html",
-  "permissions": ["http://*/*", "https://*/*"],
+  "permissions": ["http://*/*", "https://*/*", "tabs"],
   "content_scripts": [{
   	"matches": ["http://*.highrisehq.com/*", "https://*.highrisehq.com/*"],
   	"js": ["highrise-vonage.js"]

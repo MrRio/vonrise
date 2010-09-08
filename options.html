@@ -2,9 +2,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Highrise + Vonage Options</title>
+<title>Vonrise Settings</title>
 <style type="text/css">
+h1 img{
+	vertical-align: middle;
+	margin-right: 20px;
+}
 
+h1 span {
+	color: #ccc;
+	font-size: 0.7em;
+}
 body {
 	padding-left: 15px;
 	font-family: Arial;
@@ -13,6 +21,8 @@ body {
 
 h2 {
 	margin-bottom: 20px;
+	float: right;
+	color: #ccc;
 }
 
 div.input {
@@ -42,15 +52,19 @@ function saveOptions() {
 }
 
 function restoreOptions() {
-	document.getElementById('username').value = localStorage["username"];
-	document.getElementById('password').value = localStorage["password"];
+	if(localStorage["username"] != undefined) {
+		document.getElementById('username').value = localStorage["username"];
+	}
+	if(localStorage["password"] != undefined) {
+		document.getElementById('password').value = localStorage["password"];
+	}
 }
 </script>
 </head>
 <body onLoad="restoreOptions()">
 
-<h1>Highrise + Vonage Settings</h1>
-<h2>by Snapshot Media</h2>
+<h1><img src="64.png" />Vonrise Settings <span>by Snapshot Media</span></h1>
+
 
 <form action="">
 	<div class="input">
@@ -61,17 +75,13 @@ function restoreOptions() {
 		<label>Password:</label>
 		<input type="password" id="password" name="password" onkeyup="document.getElementById('save').disabled = false" />
 	</div>
-	<div class="input select">
-		<label>Call from:</label>
-		<select disabled="disabled">
-			<option></option>
-		</select>
-	</div>
 	<div class="submit">
 		<button id="save" onclick="saveOptions()" disabled="disabled">Save</button>
 		<button id="cancel" onclick="restoreOptions()">Cancel</button>
 	</div>
 </form>
+
+<p>Interested in custom application development? Contact <a href="http://snapshotmedia.co.uk">Snapshot Media</a>.</p>
 
 </body>
 </html>
